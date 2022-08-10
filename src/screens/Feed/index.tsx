@@ -1,12 +1,11 @@
 import React from 'react';
 import { ListRenderItemInfo, StatusBar, View, ViewToken } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import InfiniteScrollList from '@components/InfiniteScrollList';
 import FeedVideo from '@components/FeedVideo';
 import FeaturedVideoService from '@services/featured-videos'
 import { Video, FetchStatus } from '@models/index';
-import styles from './styles';
 import { responsiveHeight } from '@utils/responsive-dimensions';
+import styles from './styles';
 
 
 const LIMIT = 10; // number of videos to fetch per request
@@ -15,7 +14,6 @@ const FeedScreen = (): JSX.Element => {
   const [fetchStatus, setFetchStatus] = React.useState<FetchStatus>(FetchStatus.IDLE)
   const videoRefs = React.useRef([]);
   const allFetched = React.useRef(false);
-  const safeAreaInsets = useSafeAreaInsets()
 
   React.useEffect(() => {
     getVideos()
@@ -28,7 +26,7 @@ const FeedScreen = (): JSX.Element => {
       console.log({ newVideos: newVideos.map(v => v.id) })
       console.log({ oldVIdeos: videos.map(v => v.id) })
       if (newVideos.length < LIMIT) allFetched.current = true
-      setVideos(videos => videos.concat(newVideos))
+      setVideos(videos => videos.concat(newVideos.map(v => ({ ...v, likeCount: 0, commentCount: 0 }))))
     } catch (error) {
       console.log({ error });
 
@@ -40,9 +38,28 @@ const FeedScreen = (): JSX.Element => {
 
   const renderFeedVideo = (args: ListRenderItemInfo<Video>) => {
     const { item } = args
+
+    const mute = () => {
+      const videoRef = videoRefs.current[item.id]
+      if (videoRef) videoRef.mute()
+    }
+
+    const like = () => {
+      if (item.isLiked) {
+        item.isLiked = false;
+        item.likeCount -= 1;
+      } else {
+        item.isLiked = true;
+        item.likeCount += 1;
+      }
+      setVideos([...videos])
+    }
+
+    const comment = () => { }
+
     return (
       <View style={{ height: responsiveHeight(100) }}>
-        <FeedVideo video={item} ref={ref => videoRefs.current[item.id] = ref} />
+        <FeedVideo video={item} ref={ref => videoRefs.current[item.id] = ref} onMutePress={mute} onLikePress={like} onCommentPress={comment} onUserAvatarPress={() => { }} />
       </View>
     )
   }
@@ -54,10 +71,8 @@ const FeedScreen = (): JSX.Element => {
       const videoRef = videoRefs.current[row.key]
       if (videoRef) {
         if (row.isViewable) {
-          console.log('play video', row.key);
           videoRef.play()
         } else {
-          console.log('pause video', row.key);
           videoRef.pause()
         }
       }

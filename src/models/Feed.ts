@@ -37,5 +37,8 @@ export interface Video {
   is_business: number
   talent: Talent;
   occasiong: FeedOccasion;
-  duration: number
+  duration: number;
+  likeCount: number;
+  commentCount: number;
+  isLiked: boolean;
 }
