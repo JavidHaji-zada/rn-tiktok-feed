@@ -1,10 +1,16 @@
-import {responsiveHeight, responsiveWidth} from '@utils/responsive-dimensions';
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
+import { responsiveHeight, responsiveWidth } from '@utils/responsive-dimensions';
 
 const styles = StyleSheet.create({
   container: {
-    width: responsiveWidth(100),
-    height: responsiveHeight(100),
+    flex: 1
+  },
+  video: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
   },
 });
 

@@ -1,4 +1,4 @@
-import {Talent} from './Talent';
+import { Talent } from './Talent';
 
 export enum FeedStatus {
   public,
@@ -20,21 +20,22 @@ export interface FeedOccasion {
 }
 
 export interface Video {
-  id: 823;
-  talent_id: 20;
-  customer_id: 41251;
-  order_id: 103003;
+  id: number
+  talent_id: number
+  customer_id: number
+  order_id: number
   from: string;
   to: string;
   status: FeedStatus;
   created_at: string;
   updated_at: string;
-  featured: 1;
+  featured: number
   deleted_at: null;
-  occasion_id: 4;
+  occasion_id: number
   url: string;
   thumbnail: string;
-  is_business: 0;
+  is_business: number
   talent: Talent;
   occasiong: FeedOccasion;
+  duration: number
 }
