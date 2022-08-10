@@ -1,3 +1,4 @@
+import { COLORS } from '@utils/colors';
 import { responsiveHeight, responsiveWidth } from '@utils/responsive-dimensions';
 import { StyleSheet } from 'react-native';
 
@@ -12,7 +13,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     zIndex: 1000,
     paddingBottom: 20,
-    paddingRight: 20
+    paddingRight: 20,
   },
   title: {
     alignSelf: 'center',
@@ -21,10 +22,6 @@ const styles = StyleSheet.create({
   toolbar: {
     alignSelf: 'flex-end',
     top: responsiveHeight(33)
-    // position: 'absolute',
-    // zIndex: 1000,
-    // right: responsiveWidth(10),
-    // top: responsiveHeight(33),
   },
   toolbarItem: {
     alignItems: 'center',
@@ -40,10 +37,54 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginBottom: 6
   },
-
   toolbarIcon: {
     width: 24,
     height: 24
+  },
+  //TalentInfo styles
+  talentInfoContainer: {
+    paddingVertical: 40,
+    borderRadius: 20,
+    paddingHorizontal: 28,
+    position: 'absolute',
+    width: '100%',
+    alignSelf: 'center',
+    backgroundColor: "rgba(0,0,0,0.5)",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
+  talentAvatar: {
+    width: 64,
+    height: 64,
+    borderRadius: 32,
+  },
+  talentInfo: {
+    flex: 3,
+    paddingHorizontal: 16
+  },
+  talentName: {
+    marginVertical: 8
+  },
+  addToCartBtn: {
+    flex: 2,
+    height: "100%",
+    backgroundColor: COLORS.primary,
+    justifyContent: "center",
+    borderRadius: 12,
+    paddingHorizontal: 10,
+  },
+  addToCartText: {
+    textAlign: 'center',
+  },
+  addToCartBtnLine: {
+    height: 4,
+    width: "100%",
+    alignSelf: "center",
+    backgroundColor: "rgb(109,9,51)",
+    borderRadius: 4,
+    position: "absolute",
+    bottom: 3
   }
 });
 
