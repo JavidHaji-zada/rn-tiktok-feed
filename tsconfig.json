@@ -23,6 +23,7 @@
     "paths": {
       "@assets/*": ["assets/*"],
       "@components/*": ["components/*"],
+      "@environment/*": ["environment/*"],
       "@hooks/*": ["hooks/*"],
       "@models/*": ["models/*"],
       "@navigation/*": ["navigation/*"],
