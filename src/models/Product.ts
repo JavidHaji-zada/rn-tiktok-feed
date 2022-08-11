@@ -1,6 +1,6 @@
 import { Talent } from './Talent';
 
-export enum FeedStatus {
+export enum ProductStatus {
   public,
   private,
 }
@@ -19,14 +19,14 @@ export interface FeedOccasion {
   image_url: string;
 }
 
-export interface Video {
+export interface Product {
   id: number
   talent_id: number
   customer_id: number
   order_id: number
   from: string;
   to: string;
-  status: FeedStatus;
+  status: ProductStatus;
   created_at: string;
   updated_at: string;
   featured: number
@@ -36,7 +36,7 @@ export interface Video {
   thumbnail: string;
   is_business: number
   talent: Talent;
-  occasiong: FeedOccasion;
+  occasion: FeedOccasion;
   duration: number;
   likeCount: number;
   commentCount: number;

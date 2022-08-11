@@ -1,8 +1,7 @@
+import React from 'react';
+import { FlatList, FlatListProps, NativeScrollEvent, NativeSyntheticEvent } from 'react-native';
 import LoadingIndicator from '@components/LoadingIndicator';
 import { responsiveHeight } from '@utils/responsive-dimensions';
-import React from 'react';
-import { ActivityIndicator } from 'react-native';
-import { FlatList, FlatListProps, NativeScrollEvent, NativeSyntheticEvent } from 'react-native';
 import styles from './styles';
 
 interface InfiniteScrollListProps<T> extends FlatListProps<T> {

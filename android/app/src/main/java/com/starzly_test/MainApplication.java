@@ -1,4 +1,5 @@
 package com.starzly_test;
+
 import android.content.res.Configuration;
 import expo.modules.ApplicationLifecycleDispatcher;
 import expo.modules.ReactNativeHostWrapper;
@@ -15,7 +16,6 @@ import com.facebook.soloader.SoLoader;
 import com.starzly_test.newarchitecture.MainApplicationReactNativeHost;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
-import com.brentvatne.react.ReactVideoPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -32,7 +32,6 @@ public class MainApplication extends Application implements ReactApplication {
       // Packages that cannot be autolinked yet can be added manually here, for
       // example:
       // packages.add(new MyReactNativePackage());
-      packages.add(new ReactVideoPackage());
       return packages;
     }
 
@@ -42,7 +41,8 @@ public class MainApplication extends Application implements ReactApplication {
     }
   });
 
-  private final ReactNativeHost mNewArchitectureNativeHost = new ReactNativeHostWrapper(this, new MainApplicationReactNativeHost(this));
+  private final ReactNativeHost mNewArchitectureNativeHost = new ReactNativeHostWrapper(this,
+      new MainApplicationReactNativeHost(this));
 
   @Override
   public ReactNativeHost getReactNativeHost() {

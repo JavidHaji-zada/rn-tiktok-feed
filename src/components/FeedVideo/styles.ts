@@ -1,10 +1,10 @@
-import { COLORS } from '@utils/colors';
-import { responsiveHeight, responsiveWidth } from '@utils/responsive-dimensions';
 import { StyleSheet } from 'react-native';
+import { responsiveHeight, responsiveWidth } from '@utils/responsive-dimensions';
+import { COLORS } from '@utils/colors';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   // Overlay styles
   overlay: {
